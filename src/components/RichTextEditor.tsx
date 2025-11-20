@@ -275,9 +275,6 @@ const RichTextEditor: React.FC<EditorProps> = ({ onChange, initialContent = "" }
                     const isForeColor = tool.command === "foreColor";
                     const isHiliteColor = tool.command === "hiliteColor";
 
-                    // Default color value
-                    const defaultColor = isForeColor ? "#000000" : "#ffff00";
-
                     return (
                         <label key={index} className="rte-color-picker" title={tool.title}>
                             <span
