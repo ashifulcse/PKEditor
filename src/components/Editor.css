@@ -1,0 +1,47 @@
+.editor-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: sans-serif;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.toolbar {
+    background-color: #f3f4f6;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.toolbar-btn {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.toolbar-btn:hover {
+    background-color: #e5e7eb;
+}
+
+.editor-content {
+    padding: 20px;
+    min-height: 200px;
+    outline: none;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Placeholder effect */
+.editor-content:empty:before {
+    content: attr(data-placeholder);
+    color: #aaa;
+    cursor: text;
+}
