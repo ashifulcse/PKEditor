@@ -1,0 +1,39 @@
+name: Publish to NPM
+
+on:
+  # Triggers the workflow when a tag is pushed (e.g., v1.0.0, v1.0.1)
+  push:
+    tags:
+      - 'v*' 
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org' # Set NPM registry URL
+
+      - name: Install Dependencies
+        # Use 'npm ci' for clean installs in CI environments
+        run: npm ci 
+
+      - name: Run Build
+        # This executes the "build" script in your package.json (tsc && vite build)
+        run: npm run build
+
+      - name: Publish to NPM
+        # Use the secret for authentication
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          # Ensures the package version matches the git tag (e.g., git tag v1.0.0 -> npm version 1.0.0)
+          npm version ${{ github.ref_name }} --no-git-tag-version 
+          
+          # Publish the package
+          npm publish
