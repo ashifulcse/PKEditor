@@ -1,47 +1,113 @@
 .editor-container {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    font-family: sans-serif;
-    max-width: 800px;
-    margin: 20px auto;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-}
-
-.toolbar {
-    background-color: #f3f4f6;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    gap: 5px;
-    flex-wrap: wrap;
-}
-
-.toolbar-btn {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
     background: white;
-    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+.color-icon {
+    position: absolute;
+    background: transparent;
+    border: 1px solid #060606;
     border-radius: 4px;
-    padding: 6px 10px;
+}
+
+
+.rte-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px;
+    gap: 6px;
+    border-bottom: 1px solid #ddd;
+    background: #f9fafb;
+}
+
+.rte-btn {
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    background: white;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
+    border-radius: 4px;
 }
 
-.toolbar-btn:hover {
-    background-color: #e5e7eb;
+.rte-btn:hover {
+    background: #f0f0f0;
 }
 
+.rte-select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.rte-color-picker {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rte-color-picker input {
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Editor content */
 .editor-content {
-    padding: 20px;
-    min-height: 200px;
+    min-height: 250px;
+    padding: 12px;
     outline: none;
-    font-size: 16px;
-    line-height: 1.5;
 }
 
-/* Placeholder effect */
 .editor-content:empty:before {
     content: attr(data-placeholder);
-    color: #aaa;
-    cursor: text;
+    color: #888;
+}
+
+/* Modal */
+.rte-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rte-modal {
+    background: white;
+    padding: 20px;
+    width: 320px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.rte-modal-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.rte-modal-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.rte-modal-actions button {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.rte-modal-actions .primary {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
 }
